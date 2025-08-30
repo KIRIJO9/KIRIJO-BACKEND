@@ -4,7 +4,7 @@ const router = express.Router();
 
 //route for login
 router.post("/login", (req, res) =>{
-    res.send("lOGIN")
+    
 })
 
 //route for logout

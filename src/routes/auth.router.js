@@ -4,7 +4,7 @@ import { emailOtpVerification, emailVerification } from "../controllers/auth.con
 const router = express.Router();
 
 
-//route for email verification and otp verification
+//route for email verification and otp
 router.post("/email-verification-otp-sending", emailVerification)
 router.post("/email-otp-verification", emailOtpVerification)
 

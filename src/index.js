@@ -17,8 +17,13 @@ app.use(cors({
 }))
 
 //extracting the variables from .env file
-const PORT = process.env.PORT
-const MONGO_URI = process.env.MONGO_URI
+const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+  console.error("Error: MONGO_URI is not defined in .env file");
+  process.exit(1); // Stop application as DB URI is critical
+}
 
 //Main functionality middleware
 app.use("/api/auth", authentication) //this is authentication middleware

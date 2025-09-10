@@ -1,6 +1,7 @@
 import express from "express";
 import { config } from "dotenv";
-import authentication from "./routes/auth.router.js"
+import authentication from "./routes/auth.router.js";
+import productRoutes from "./routes/product.router.js";
 import { connectDB } from "./config/db.config.js";
 import cookieParser from "cookie-parser";
 import cors from "cors"
@@ -26,7 +27,8 @@ if (!MONGO_URI) {
 }
 
 //Main functionality middleware
-app.use("/api/auth", authentication) //this is authentication middleware
+app.use("/api/auth", authentication)
+app.use("/api/product", productRoutes) 
 
 app.listen(PORT, async ()=>{
     await connectDB(MONGO_URI)

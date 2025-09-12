@@ -44,8 +44,8 @@ export const sendOtpViaEmail = async (email, otp) => {
 }
 
 //generating jwt token
-export const generateToken = async (clientId, res) => {
-    const token = jwt.sign({ clientId }, JWT_SECRET, { expiresIn : "30d" })
+export const generateToken = async (userId, res) => {
+    const token = jwt.sign({ userId }, JWT_SECRET, { expiresIn : "30d" })
 
     res.cookie("kirijo_cookie", token, {
         maxAge: 30 * 24 * 60 * 60 * 1000,
